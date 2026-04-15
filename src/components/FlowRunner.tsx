@@ -98,7 +98,7 @@ export function FlowRunner() {
           return {
             aaguid: parsed.aaguid || 'N/A',
             name: step.id.includes('reg') ? 'Registered Authenticator' : 'Authenticator',
-            counter: parsed.counter ?? 0,
+            counter: parsed.signCount ?? 0,
             flags: {
               userPresent: parsed.flags?.userPresent ?? false,
               userVerified: parsed.flags?.userVerified ?? false,
@@ -174,13 +174,6 @@ export function FlowRunner() {
     [steps, engine, execute, store, getEffectiveStepData, extractTokenInfo]
   );
 
-  // Determine which column has the runnable code for each step
-  const getRunColumn = (step: StepDefinition): ColumnId | null => {
-    if (step.cells.browser?.type === 'code') return 'browser';
-    if (step.cells.server?.type === 'code') return 'server';
-    return null;
-  };
-
   return (
     <div className="flow-runner">
       <FlowSelector
@@ -193,8 +186,6 @@ export function FlowRunner() {
         {steps.map((step, index) => {
           const isActive = index === engine.activeStepIndex;
           const isPending = index > engine.activeStepIndex;
-          const runColumn = getRunColumn(step);
-
           return (
             <StepRow
               key={step.id}
