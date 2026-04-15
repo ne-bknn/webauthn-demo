@@ -1,0 +1,47 @@
+:root {
+  --bg-primary: #1a1b26;
+  --bg-secondary: #1e1f2e;
+  --bg-tertiary: #252636;
+  --bg-cell: #1e1f2e;
+  --text-primary: #c0caf5;
+  --text-secondary: #787c99;
+  --text-muted: #565a6e;
+  --border: #2e3050;
+  --border-active: #7aa2f7;
+  --accent: #7aa2f7;
+  --accent-dim: rgba(122, 162, 247, 0.15);
+  --green: #9ece6a;
+  --green-dim: rgba(158, 206, 106, 0.15);
+  --red: #f7768e;
+  --red-dim: rgba(247, 118, 142, 0.15);
+  --orange: #e0af68;
+  --orange-dim: rgba(224, 175, 104, 0.15);
+  --purple: #bb9af7;
+
+  --col-token: rgba(158, 206, 106, 0.08);
+  --col-browser: rgba(122, 162, 247, 0.08);
+  --col-wire: rgba(224, 175, 104, 0.08);
+  --col-server: rgba(187, 154, 247, 0.08);
+
+  --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, Consolas, monospace;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
